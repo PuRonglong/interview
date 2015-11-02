@@ -44,6 +44,12 @@ div.style.color = "#000";
 ```
 
 ### 6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？<br  />
+
+三种方式执行一个函数<br  />
+dom里绑定<br  />
+在js里绑定<br  />
+通过事件添加,添加addEventListener<br  />
+
 * 直接在DOM里绑定事件：<div onclick="test()"></div>
 * 在JS里通过onclick绑定：xxx.onclick = test
 * 通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)
@@ -55,32 +61,38 @@ div.style.color = "#000";
 
 ### 7.什么是Ajax和JSON，它们的优缺点。<br  />
 Ajax是异步javascript和xml,用于在web页中实现异步数据交互<br  />
-优点:
-局部加载,降低数据传输量
-避免不断跳转,提高用户体验
-缺点:
-对搜索引擎不友好
-可能造成请求数增加
-跨域问题:jsonp,jsonp与json区别,
+优点:<br  />
+局部加载,降低数据传输量<br  />
+避免不断跳转,提高用户体验<br  />
+缺点:<br  />
+对搜索引擎不友好<br  />
+可能造成请求数增加<br  />
+跨域问题:jsonp,<br  />
+那么jsonp与json有什么区别呢
 详解js跨域问题:
 http://segmentfault.com/a/1190000000718840
 http://www.cnblogs.com/sunxucool/p/3433992.html
 
 ### 8.看下列代码输出为何？解释原因。<br  />
+```js
 var a;
 alert(typeof a); // undefined
 alert(b); // 报错
+```
 在使用var声明变量但并未对其赋值进行初始化时，这个变量的值就是undefined。而b由于未声明将报错。注意未申明的变量和声明了未赋值的是不一样的。<br  />
-typeof用来返回数据类型
-instanceof用来检测某个对象是不是另一个对象的实例
+typeof用来返回数据类型<br  />
+instanceof用来检测某个对象是不是另一个对象的实例<br  />
 
 ### 9.看下列代码,输出什么？解释原因。<br  />
+```js
 var a = null;
 alert(typeof a); //object
+```
 null是一个只有一个值的数据类型，这个值就是null。表示一个空指针对象，所以用typeof检测会返回”object”。<br  />
 如:typeof(null);//object
 
 ### 10.看下列代码,输出什么？解释原因。<br  />
+```js
 var undefined;
 undefined == null;//true undefined和null相等;关于undefined和null小结下
 1 == true;//true
@@ -90,7 +102,8 @@ undefined == null;//true undefined和null相等;关于undefined和null小结下
 NaN == NaN;//false
 [] == false;//true
 [] == ![];//false错误应为true  []是空数组字面量，转换成boolean值为true。
-null用来表示尚未存在的对象
+```
+null用来表示尚未存在的对象<br  />
 undefined是声明的变量尚未初始化
 
 var foo = "11"+2-"1";
@@ -98,12 +111,13 @@ console.log(foo);
 console.log(typeof foo);
 
 ### 11.看代码给答案<br  />
-
+```js
 var a = new Object();
 a.value = 1;
 b = a;
 b.value = 2;
 console.log(a.value);//2
+```
 
 这里考察数据类型:对于基本类型和引用类型的区别
 
@@ -117,6 +131,7 @@ join方法用于把数组中的所有元素放入一个字符串<br  />
 
 那么问题来了，已知有字符串foo="get-element-by-id",写一个function将其转化成驼峰表示法"getElementById"。
 
+```js
 function combo(msg){
     var arr = msg.split("-");
     var len = arr.length;    //将arr.length存储在一个局部变量可以提高for循环效率
@@ -126,8 +141,4 @@ function combo(msg){
     msg=arr.join("");
     return msg;
 }
-
-//三种方式执行一个函数
-//dom里绑定
-//在js里绑定
-//通过事件添加,添加addEventListener
+```
