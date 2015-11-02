@@ -14,6 +14,7 @@
 document.getElementById(“ID”).value
 
 ### 4.希望获取到页面中所有的checkbox怎么做?<br  />
+```
 var checkList = document.getElementsByTagName('input');
 var array = [];
 var len = checkList.length;
@@ -23,6 +24,7 @@ while(len--){
     }
 }
 console.log(array);
+```
 
 让我们再挖掘些别的涉及到的知识点<br  />
 --i 和 i-- 有什么区别？i——是先使用i的值作为i——的值，然后，执行i=i-1操作<br  />
