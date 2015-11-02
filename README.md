@@ -14,7 +14,7 @@
 document.getElementById(“ID”).value
 
 ### 4.希望获取到页面中所有的checkbox怎么做?<br  />
-```
+```js
 var checkList = document.getElementsByTagName('input');
 var array = [];
 var len = checkList.length;
@@ -28,22 +28,26 @@ console.log(array);
 
 让我们再挖掘些别的涉及到的知识点<br  />
 --i 和 i-- 有什么区别？i——是先使用i的值作为i——的值，然后，执行i=i-1操作<br  />
+```js
 var i=4,j,k;
 j=i--;
 k=--i;
 console.log(i,j,k);//2,4,2
+```
 
 ### 5.设置一个已知id的div的html内容为xxxx，字体颜色设置为黑色(不使用第三方框架)<br  />
+```js
 var div = document.getElementById('div1');
 div.innerHTML = "xxxx";
 div.style.color = "#000";
 考察对dom节点的操作
+```
 
 ### 6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？<br  />
-直接在DOM里绑定事件：<div onclick="test()"></div>
-在JS里通过onclick绑定：xxx.onclick = test
-通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)
-那么问题来了，Javascript的事件流(事件发生顺序)模型都有什么？
+* 直接在DOM里绑定事件：<div onclick="test()"></div>
+* 在JS里通过onclick绑定：xxx.onclick = test
+* 通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)
+那么又有问题了，Javascript的事件流(事件发生顺序)模型都有什么？又都是由谁提出的呢?
 
 “事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播;由微软提出
 “事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的;由网景提出
