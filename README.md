@@ -40,8 +40,10 @@ console.log(i,j,k);//2,4,2
 var div = document.getElementById('div1');
 div.innerHTML = "xxxx";
 div.style.color = "#000";
-考察对dom节点的操作
 ```
+考察对dom节点的操作
+
+那么这里又让我们来探讨一下innerHTML吧,
 
 ### 6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？<br  />
 
