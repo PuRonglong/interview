@@ -1,8 +1,8 @@
 # interview
 
-1.javascript是一门什么样的语言，它有哪些特点？
+### 1.javascript是一门什么样的语言，它有哪些特点？
 
-2.javascript的数据类型都有什么？
+### 2.javascript的数据类型都有什么？<br  />
 基本类型(undefined,null,number,string,boolean)；
 引用类型(object:array,data,regex,function)，
 引用类型里又有个引申问题就是说如何判断是否为数组数据类型，出处给出了三种方法：
@@ -10,10 +10,10 @@
 方法二.obj instanceof Array 在某些IE版本中不正确
 方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray(), 保证其兼容性
 
-3.已知ID的input输入框，希望获取这个输入框的输入值，怎么做？(不使用第三方框架)
+### 3.已知ID的input输入框，希望获取这个输入框的输入值，怎么做？(不使用第三方框架)<br  />
 document.getElementById(“ID”).value
 
-4.希望获取到页面中所有的checkbox怎么做
+### 4.希望获取到页面中所有的checkbox怎么做?<br  />
 var checkList = document.getElementsByTagName('input');
 var array = [];
 var len = checkList.length;
@@ -31,13 +31,13 @@ j=i--;
 k=--i;
 console.log(i,j,k);//2,4,2
 
-5.设置一个已知id的div的html内容为xxxx，字体颜色设置为黑色(不使用第三方框架)
+### 5.设置一个已知id的div的html内容为xxxx，字体颜色设置为黑色(不使用第三方框架)<br  />
 var div = document.getElementById('div1');
 div.innerHTML = "xxxx";
 div.style.color = "#000";
 考察对dom节点的操作
 
-6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？
+### 6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？<br  />
 直接在DOM里绑定事件：<div onclick="test()"></div>
 在JS里通过onclick绑定：xxx.onclick = test
 通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)
@@ -47,7 +47,7 @@ div.style.color = "#000";
 “事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的;由网景提出
 “DOM事件流”有三个阶段：事件捕捉，目标阶段，事件冒泡
 
-7.什么是Ajax和JSON，它们的优缺点。
+### 7.什么是Ajax和JSON，它们的优缺点。<br  />
 Ajax是异步javascript和xml,用于在web页中实现异步数据交互
 优点:
 局部加载,降低数据传输量
@@ -60,7 +60,7 @@ Ajax是异步javascript和xml,用于在web页中实现异步数据交互
 http://segmentfault.com/a/1190000000718840
 http://www.cnblogs.com/sunxucool/p/3433992.html
 
-8.看下列代码输出为何？解释原因。
+### 8.看下列代码输出为何？解释原因。<br  />
 var a;
 alert(typeof a); // undefined
 alert(b); // 报错
@@ -68,13 +68,13 @@ alert(b); // 报错
 typeof用来返回数据类型
 instanceof用来检测某个对象是不是另一个对象的实例
 
-9.看下列代码,输出什么？解释原因。
+### 9.看下列代码,输出什么？解释原因。<br  />
 var a = null;
 alert(typeof a); //object
 null是一个只有一个值的数据类型，这个值就是null。表示一个空指针对象，所以用typeof检测会返回”object”。
 如:typeof(null);//object
 
-10.看下列代码,输出什么？解释原因。
+### 10.看下列代码,输出什么？解释原因。<br  />
 var undefined;
 undefined == null;//true undefined和null相等;关于undefined和null小结下
 1 == true;//true
@@ -91,7 +91,7 @@ var foo = "11"+2-"1";
 console.log(foo);
 console.log(typeof foo);
 
-11.看代码给答案
+### 11.看代码给答案<br  />
 
 var a = new Object();
 a.value = 1;
@@ -101,7 +101,7 @@ console.log(a.value);//2
 
 这里考察数据类型:对于基本类型和引用类型的区别
 
-12.已知数组var stringArray = [“This”, “is”, “Baidu”, “Campus”]，Alert出”This is Baidu Campus”。
+### 12.已知数组var stringArray = [“This”, “is”, “Baidu”, “Campus”]，Alert出”This is Baidu Campus”。<br  />
 
 alert(stringArray.join(" "));
 
