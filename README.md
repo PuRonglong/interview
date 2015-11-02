@@ -3,12 +3,12 @@
 ### 1.javascript是一门什么样的语言，它有哪些特点？
 
 ### 2.javascript的数据类型都有什么？<br  />
-基本类型(undefined,null,number,string,boolean)；
-引用类型(object:array,data,regex,function)，
-引用类型里又有个引申问题就是说如何判断是否为数组数据类型，出处给出了三种方法：
-方法一.判断其是否具有“数组性质”，如slice()方法。可自己给该变量定义slice方法，故有时会失效
-方法二.obj instanceof Array 在某些IE版本中不正确
-方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray(), 保证其兼容性
+基本类型(undefined,null,number,string,boolean)；<br  />
+引用类型(object:array,data,regex,function)，<br  />
+引用类型里又有个引申问题就是说如何判断是否为数组数据类型，出处给出了三种方法：<br  />
+方法一.判断其是否具有“数组性质”，如slice()方法。可自己给该变量定义slice方法，故有时会失效<br  />
+方法二.obj instanceof Array 在某些IE版本中不正确<br  />
+方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray(), 保证其兼容性<br  />
 
 ### 3.已知ID的input输入框，希望获取这个输入框的输入值，怎么做？(不使用第三方框架)<br  />
 document.getElementById(“ID”).value
@@ -24,8 +24,8 @@ while(len--){
 }
 console.log(array);
 
-让我们再挖掘些别的涉及到的知识点
---i 和 i-- 有什么区别？i——是先使用i的值作为i——的值，然后，执行i=i-1操作
+让我们再挖掘些别的涉及到的知识点<br  />
+--i 和 i-- 有什么区别？i——是先使用i的值作为i——的值，然后，执行i=i-1操作<br  />
 var i=4,j,k;
 j=i--;
 k=--i;
@@ -48,7 +48,7 @@ div.style.color = "#000";
 “DOM事件流”有三个阶段：事件捕捉，目标阶段，事件冒泡
 
 ### 7.什么是Ajax和JSON，它们的优缺点。<br  />
-Ajax是异步javascript和xml,用于在web页中实现异步数据交互
+Ajax是异步javascript和xml,用于在web页中实现异步数据交互<br  />
 优点:
 局部加载,降低数据传输量
 避免不断跳转,提高用户体验
@@ -64,14 +64,14 @@ http://www.cnblogs.com/sunxucool/p/3433992.html
 var a;
 alert(typeof a); // undefined
 alert(b); // 报错
-在使用var声明变量但并未对其赋值进行初始化时，这个变量的值就是undefined。而b由于未声明将报错。注意未申明的变量和声明了未赋值的是不一样的。
+在使用var声明变量但并未对其赋值进行初始化时，这个变量的值就是undefined。而b由于未声明将报错。注意未申明的变量和声明了未赋值的是不一样的。<br  />
 typeof用来返回数据类型
 instanceof用来检测某个对象是不是另一个对象的实例
 
 ### 9.看下列代码,输出什么？解释原因。<br  />
 var a = null;
 alert(typeof a); //object
-null是一个只有一个值的数据类型，这个值就是null。表示一个空指针对象，所以用typeof检测会返回”object”。
+null是一个只有一个值的数据类型，这个值就是null。表示一个空指针对象，所以用typeof检测会返回”object”。<br  />
 如:typeof(null);//object
 
 ### 10.看下列代码,输出什么？解释原因。<br  />
@@ -105,9 +105,9 @@ console.log(a.value);//2
 
 alert(stringArray.join(" "));
 
-这里考察数组的一些方法了,w3school对join的定义和用法如下:
-join方法用于把数组中的所有元素放入一个字符串
-元素是通过指定的分隔符进行分隔的
+这里考察数组的一些方法了,w3school对join的定义和用法如下:<br  />
+join方法用于把数组中的所有元素放入一个字符串<br  />
+元素是通过指定的分隔符进行分隔的<br  />
 
 那么问题来了，已知有字符串foo="get-element-by-id",写一个function将其转化成驼峰表示法"getElementById"。
 
