@@ -43,7 +43,7 @@ div.style.color = "#000";
 ```
 考察对dom节点的操作
 
-那么这里又让我们来探讨一下innerHTML吧,
+那么这里又让我们来探讨一下innerHTML吧,w3school上的定义是：innerHTML属性设置或返回表格行的开始和结束标签之间的html
 
 ### 6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？<br  />
 
