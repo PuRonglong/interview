@@ -4,7 +4,7 @@
 
 ### 2.javascript的数据类型都有什么？<br  />
 基本类型(undefined,null,number,string,boolean)；<br  />
-引用类型(object:array,data,regex,function)，<br  />
+引用类型(object:array,data,regex,function)。<br  />
 引用类型里又有个引申问题就是说如何判断是否为数组数据类型，出处给出了三种方法：<br  />
 方法一.判断其是否具有“数组性质”，如slice()方法。可自己给该变量定义slice方法，故有时会失效<br  />
 方法二.obj instanceof Array 在某些IE版本中不正确<br  />
