@@ -43,7 +43,14 @@ div.style.color = "#000";
 ```
 考察对dom节点的操作
 
-那么这里又让我们来探讨一下innerHTML吧,w3school上的定义是：innerHTML属性设置或返回表格行的开始和结束标签之间的html
+那么这里又让我们来探讨一下innerHTML吧,w3school上的定义是：innerHTML属性设置或返回表格行的开始和结束标签之间的html，而有一个document.write()经常拿来和它做比较，w3school说write方法可向文档写入html表达式和javascript代码。
+
+其实这两者还是有很多不同之处的，让我们来缕一缕：
+
+* document.write表示的是document文档有一个write()方法，用来在文档中写入内容；innerHTML是DOM元素的一个属性，指代的是这个元素包含的所有内容。简单说就是DOM的innerHTML是DOM元素对象的一个属性，而write是document对象的一个方法。
+* 前者重绘整个页面，innerHTML可以重绘局部。
+* document.write直接输出在浏览器，后面继续write，内容会一直在后面添加。innerHTML是获取或指定DOM元素的内容。
+* 可以使用document.write()向输出流写HTML，如：document.write("<h1>Hello World!</h1>")
 
 ### 6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？<br  />
 
@@ -57,8 +64,8 @@ dom里绑定<br  />
 * 通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)
 那么又有问题了，Javascript的事件流(事件发生顺序)模型都有什么？又都是由谁提出的呢?
 
-“事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播;由微软提出
-“事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的;由网景提出
+“事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播;由微软提出<br  />
+“事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的;由网景提出<br  />
 “DOM事件流”有三个阶段：事件捕捉，目标阶段，事件冒泡
 
 ### 7.什么是Ajax和JSON，它们的优缺点。<br  />
@@ -70,7 +77,7 @@ Ajax是异步javascript和xml,用于在web页中实现异步数据交互<br  />
 对搜索引擎不友好<br  />
 可能造成请求数增加<br  />
 跨域问题:jsonp,<br  />
-那么jsonp与json有什么区别呢
+那么jsonp与json有什么区别呢<br  />
 详解js跨域问题:
 http://segmentfault.com/a/1190000000718840
 http://www.cnblogs.com/sunxucool/p/3433992.html
