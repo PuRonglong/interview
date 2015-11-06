@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc2732f4-6271-45d1-b2d6-8a66bf38ccff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-    </list>
+    <list default="true" id="fc2732f4-6271-45d1-b2d6-8a66bf38ccff" name="Default" comment="" />
     <ignored path="interview.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +24,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8226351">
-              <caret line="181" column="3" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
+            <state vertical-scroll-proportion="-0.6469595">
+              <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -247,8 +245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8226351">
-          <caret line="181" column="3" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
+        <state vertical-scroll-proportion="-0.6469595">
+          <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
           <folding />
         </state>
       </provider>
