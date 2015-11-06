@@ -50,7 +50,10 @@ div.style.color = "#000";
 * document.write表示的是document文档有一个write()方法，用来在文档中写入内容；innerHTML是DOM元素的一个属性，指代的是这个元素包含的所有内容。简单说就是DOM的innerHTML是DOM元素对象的一个属性，而write是document对象的一个方法。
 * 前者重绘整个页面，innerHTML可以重绘局部。
 * document.write直接输出在浏览器，后面继续write，内容会一直在后面添加。innerHTML是获取或指定DOM元素的内容。
-* 可以使用document.write()向输出流写HTML，如：document.write("<h1>Hello World!</h1>")
+* 可以使用document.write()向输出流写HTML，如：
+```
+document.write("<h1>Hello World!</h1>")
+```
 
 ### 6.当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做？<br  />
 
@@ -90,7 +93,7 @@ callback({"name","trigkit4"});
 
 参考资料:
 
-[详解js跨域问题](http://segmentfault.com/a/1190000000718840)
+[详解js跨域问题](http://segmentfault.com/a/1190000000718840)<br  />
 [如何解决ajax跨域问题](http://www.cnblogs.com/sunxucool/p/3433992.html)
 
 ### 8.看下列代码输出为何？解释原因。<br  />
