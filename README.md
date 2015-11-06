@@ -114,7 +114,7 @@ null是一个只有一个值的数据类型，这个值就是null。表示一个
 ### 10.看下列代码,输出什么？解释原因。<br  />
 ```js
 var undefined;
-undefined == null;//true undefined和null相等;关于undefined和null小结下
+undefined == null;//true undefined和null相等;
 1 == true;//true
 2 == true;//true错误应为false;==会把比较的二者进行类型转换
 0 == false;//true
