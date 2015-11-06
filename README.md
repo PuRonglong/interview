@@ -129,7 +129,8 @@ NaN == NaN;//false
 null用来表示尚未存在的对象<br  />
 undefined是声明的变量尚未初始化
 
-关于比较可以看迷渡的这篇:<br  />
+关于比较可以看迷渡的这篇:
+
 [详解javascript中的比较](http://segmentfault.com/q/1010000000305997)
 
 比如还有:
