@@ -62,6 +62,7 @@ dom里绑定<br  />
 * 直接在DOM里绑定事件：<div onclick="test()"></div>
 * 在JS里通过onclick绑定：xxx.onclick = test
 * 通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)
+
 那么又有问题了，Javascript的事件流(事件发生顺序)模型都有什么？又都是由谁提出的呢?
 
 “事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播;由微软提出<br  />
@@ -77,10 +78,20 @@ Ajax是异步javascript和xml,用于在web页中实现异步数据交互<br  />
 对搜索引擎不友好<br  />
 可能造成请求数增加<br  />
 跨域问题:jsonp,<br  />
-那么jsonp与json有什么区别呢<br  />
-详解js跨域问题:
-http://segmentfault.com/a/1190000000718840
-http://www.cnblogs.com/sunxucool/p/3433992.html
+
+那么什么是跨域问题呢?jsonp与json有什么区别呢?
+
+关于跨域的概念:只要协议,域名,端口有任何一个不同,都被当做是不同的域.
+jsonp(json with padding)也叫填充式json,可以认为是被包含在函数调用中的json:
+
+```
+callback({"name","trigkit4"});
+```
+
+参考资料:
+
+[详解js跨域问题](http://segmentfault.com/a/1190000000718840)
+[如何解决ajax跨域问题](http://www.cnblogs.com/sunxucool/p/3433992.html)
 
 ### 8.看下列代码输出为何？解释原因。<br  />
 ```js
@@ -105,12 +116,12 @@ null是一个只有一个值的数据类型，这个值就是null。表示一个
 var undefined;
 undefined == null;//true undefined和null相等;关于undefined和null小结下
 1 == true;//true
-2 == true;//true错误应为false
+2 == true;//true错误应为false;==会把比较的二者进行类型转换
 0 == false;//true
 0 == '';//true
 NaN == NaN;//false
 [] == false;//true
-[] == ![];//false错误应为true  []是空数组字面量，转换成boolean值为true。
+[] == ![];//false;错误应为true  []是空数组字面量，转换成boolean值为true。
 ```
 null用来表示尚未存在的对象<br  />
 undefined是声明的变量尚未初始化
