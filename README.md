@@ -121,14 +121,28 @@ undefined == null;//true undefined和null相等;关于undefined和null小结下
 0 == '';//true
 NaN == NaN;//false
 [] == false;//true
-[] == ![];//false;错误应为true  []是空数组字面量，转换成boolean值为true。
+[] == ![];//false;错误应为true  因为![]是个布尔值,为false,因此我们比较的是[] == 0;
 ```
 null用来表示尚未存在的对象<br  />
 undefined是声明的变量尚未初始化
 
+关于比较可以看迷渡的这篇:<br  />
+[详解javascript中的比较](http://segmentfault.com/q/1010000000305997)
+
+比如还有:
+
+```
+0 == '0';//true
+[] == [];//false
+[] == !{};//true;因为!{}是个布尔值,为false,因此我们比较的是[] == 0;
+
+```
 var foo = "11"+2-"1";
 console.log(foo);
 console.log(typeof foo);
+```
+
+值为111,类型为number
 
 ### 11.看代码给答案<br  />
 ```js
