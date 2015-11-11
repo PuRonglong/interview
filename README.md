@@ -157,7 +157,7 @@ b.value = 2;
 console.log(a.value);//2
 ```
 
-这里考察数据类型:对于基本类型和引用类型的区别
+这里考察数据类型:对于基本类型和引用类型的区别,引用数据类型细节.
 
 ### 12.已知数组var stringArray = [“This”, “is”, “Baidu”, “Campus”]，Alert出”This is Baidu Campus”。<br  />
 
@@ -180,3 +180,39 @@ function combo(msg){
     return msg;
 }
 ```
+考察基础API
+
+### 13.var numberArray = [3, 6, 2, 4, 1, 5];
+
+1)实现对该数组的倒排,输出[5, 1, 4, 2, 6, 3]<br  />
+2)实现对该数组的降序排列,输出[6, 5, 4, 3, 2, 1]
+
+```js
+var numberArray = [3, 6, 2, 4, 1, 5];
+numberArray.reverse();//5, 1, 4, 2, 6, 3
+numberArray.sort(function(a,b){//6, 5, 4, 3, 2, 1
+	return b-a;
+	})
+```
+reverse()方法用于颠倒数组中元素的顺序.该方法会改变原来的数组,而不会创建新的数组
+
+sort()方法用于对数组的元素进行由小到大排序,提供比较函数后可以按照其他标准进行排序
+
+考察数组的相关操作
+
+### 14.输出今天的日期，以YYYY-MM-DD的方式，比如今天是2014年9月26日，则输出2014-09-26.
+
+```js
+var date = new Date();
+var year = date.getFullYear();//获取年,返回四位
+var month = date.getMonth() + 1;//获取月份,0是1月
+month = month < 10 ? '0' + month : month;//让月份显示两位
+var day = date.getDate();//获取日
+day = day < 10 ? '0' + day : day;//让天数显示两位
+console.log(year + '-' + month + '-' + day);
+```
+考察日期的相关操作
+
+### 15.将字符串”<tr><td>{id}</td><td>{name}</td></tr>”中的{id}替换成10，{name}替换成Tony （使用正则表达式）
+
+答案："<tr><td>{id}</td><td>{id}_{$name}</td></tr>".replace(/{\$id}/g, '10').replace(/{\$name}/g, ‘Tony’);
