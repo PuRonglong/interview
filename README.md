@@ -259,3 +259,27 @@ a();
 
 函数声明与变量声明会被JavaScript引擎隐式地提升到当前作用域的顶部，但是只提升名称不会提升赋值部分。
 
+### 19.用js实现随机选取10--100之间的10个数字，存入一个数组，并排序。
+```js
+var array = [];
+for (i = 0; i < 10; i++){
+	var number = Math.random()*90 + 10;
+	array.push(number);
+}
+array.sort();
+```
+或者
+
+```js
+var iArray = [];
+function getRandom(start,end){   
+	var Range = end - start;    
+	return (start +(Math.random() * Range));   
+}   
+for(var i=0; i<10; i++){
+    iArray.push(getRandom(10,100));
+}
+console.log(iArray);
+```
+这里原答案有几处粗心的错误,一个是function没有写c,一个是()没有写全,其中function那个错误还找了好久没有找到问题,因为自己没有写function的
+方法就没有比对着看.
