@@ -216,3 +216,46 @@ console.log(year + '-' + month + '-' + day);
 ### 15.将字符串”<tr><td>{id}</td><td>{name}</td></tr>”中的{id}替换成10，{name}替换成Tony （使用正则表达式）
 
 答案："<tr><td>{id}</td><td>{id}_{$name}</td></tr>".replace(/{\$id}/g, '10').replace(/{\$name}/g, ‘Tony’);
+
+### 16.为了保证页面输出安全，我们经常需要对一些特殊的字符进行转义，请写一个函数escapeHtml，将<, >, &, “进行转义.
+
+```js
+function escapeHtml(str){
+	return str.replace(/[<>"&]/g, function(match){
+		switch(match){
+			case "<";
+				return "&lt;";
+			case ">":
+				return "&gt;";
+			case “&”:
+            	return “&amp;”;
+            case “\””:
+            	return “&quot;”;
+		}
+	}
+}
+```
+
+### 17.foo = foo||bar ，这行代码是什么意思？为什么要这样写？
+
+答案：if(!foo) foo = bar; //如果foo存在，值不变，否则把bar的值赋给foo。
+
+短路表达式：作为"&&"和"||"操作符的操作数表达式，这些表达式在进行求值时，只要最终的结果已经可以确定是真或假，求值过程便告终止，这称之为短路求值。
+
+### 18.看下列代码，将会输出什么?
+
+```js
+var foo = 1;
+function a(){
+	console.log(foo);
+	var foo = 2;
+	console.log(foo);
+};
+a();
+```
+
+输出undefined和2.这里的一个考察点在于变量声明提前.也就是```var foo = 2;```其实应该拆分为两部分,var foo;和foo = 2;前者是声明,会提前,
+后者是赋值,不会提前
+
+函数声明与变量声明会被JavaScript引擎隐式地提升到当前作用域的顶部，但是只提升名称不会提升赋值部分。
+
