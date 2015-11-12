@@ -283,3 +283,39 @@ console.log(iArray);
 ```
 这里原答案有几处粗心的错误,一个是function没有写c,一个是()没有写全,其中function那个错误还找了好久没有找到问题,因为自己没有写function的
 方法就没有比对着看.
+
+### 20.把两个数组合并,并删除第二个元素
+
+```js
+var array1 = ['a', 'b', 'c'];
+var array2 = ['d', 'e', 'f'];
+var array3 = array1.concat(array2);
+array3.splice(1, 1);
+```
+concat的连接让我想到mysql里也是这个连接符.这是和别的sql语句不同的地方
+
+考察的还是数组的相关操作,那就把数组的相关操作总结一下:
+
+### 21.怎样添加、移除、移动、复制、创建和查找节点（原生JS，实在基础，没细写每一步)
+
+1)创建新节点
+```js
+createDocumentFragment()//创建一个DOM片段
+createElement()//创建一个具体的元素
+createTextNode()//创建一个文本节点
+```
+
+2)添加,移除,替换,插入
+```js
+appendChild()//添加
+removeChild()//移除
+replaceChild()//替换
+insertBefore()//插入
+```
+
+3)查找
+```js
+getElementsByTagName()//通过标签名称
+getElementsByName()//通过元素的Name属性的值
+getElementById()//通过元素id,唯一性
+```
