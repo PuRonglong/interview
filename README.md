@@ -365,3 +365,43 @@ for(var i=1;i<=3;i++){
 
 http://www.bubuko.com/infodetail-1183545.html
 
+### 25.写一个function，清除字符串前后的空格。（兼容所有浏览器）.使用自带接口trim()，考虑兼容性：
+
+```js
+if (!String.prototype.trim) { 
+ String.prototype.trim = function() { 
+ return this.replace(/^\s+/, "").replace(/\s+$/,"");
+ } 
+} 
+
+// test the function 
+var str = " \t\n test string ".trim(); 
+alert(str == "test string"); // alerts "true"
+```
+
+### 26.Javascript中callee和caller的作用？
+
+caller是返回一个对函数的引用，该函数调用了当前函数；
+
+callee是返回正在被执行的function函数，也就是所指定的function对象的正文。
+
+那么问题来了？如果一对兔子每月生一对兔子；一对新生兔，从第二个月起就开始生兔子；假定每对兔子都是一雌一雄，试问一对兔子，第n个月能繁殖成多少对兔子？（使用callee完成）
+
+```js
+var result=[];
+function fn(n){  //典型的斐波那契数列
+   if(n==1){
+        return 1;
+   }else if(n==2){
+           return 1;
+   }else{
+        if(result[n]){
+                return result[n];
+        }else{
+                //argument.callee()表示fn()
+                result[n]=arguments.callee(n-1)+arguments.callee(n-2);
+                return result[n];
+        }
+   }
+}
+```
