@@ -319,3 +319,49 @@ getElementsByTagName()//通过标签名称
 getElementsByName()//通过元素的Name属性的值
 getElementById()//通过元素id,唯一性
 ```
+
+### 22.有这样一个URL：http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e，请写一段JS程序提取URL中的各个GET参数(参数名
+和参数个数不确定)，将其按key-value形式返回到一个json结构中，如{a:'1', b:'2', c:'', d:'xxx', e:undefined}。
+
+```js
+function serilizeUrl(url) {
+    var result = {};
+    url = url.split("?")[1];
+    var map = url.split("&");
+    for(var i = 0, len = map.length; i < len; i++) {
+        result[map[i].split("=")[0]] = map[i].split("=")[1];
+    }
+    return result;
+}
+```
+
+w3cshool:split()方法用于把一个字符串分割成字符串数组.主要还是考察数组相关方法,干脆总结下数组大概有哪些方法:splice等
+
+### 23.正则表达式构造函数var reg=new RegExp("xxx")与正则表达字面量var reg=//有什么不同？匹配邮箱的正则表达式？
+
+答案：当使用RegExp()构造函数的时候，不仅需要转义引号（即\"表示"），并且还需要双反斜杠（即\\表示一个\）。使用正则表达字面量的效率更高。
+
+邮箱的正则匹配:
+```js
+var regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+```
+
+关于正则的相关匹配,这里有篇对匹配URL比较详细的:
+[更靠谱一些的正则表达式验证URL](http://www.soulteary.com/2014/12/05/better-url-regexp-in-js.html)
+
+### 24.看下面代码，给出输出结果。
+
+```js
+for(var i=1;i<=3;i++){
+  setTimeout(function(){
+      console.log(i);    
+  },0);  
+};
+```
+
+结果是4,4,4
+
+这是一个老生常谈的经典问题了,涉及异步和闭包的问题
+
+http://www.bubuko.com/infodetail-1183545.html
+
