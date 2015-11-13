@@ -405,3 +405,20 @@ function fn(n){  //典型的斐波那契数列
    }
 }
 ```
+
+### 27.实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
+      
+考察点1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区别是否清楚<br  />
+考察点2：是否知道如何判断一个变量是什么类型的<br  />
+考察点3：递归算法的设计<br  />
+
+```js
+// 方法一：
+Object.prototype.clone = function(){
+        var o = this.constructor === Array ? [] : {};
+        for(var e in this){
+                o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
+        }
+        return o;
+}
+```
