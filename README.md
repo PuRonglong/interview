@@ -354,8 +354,8 @@ var regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 ```js
 for(var i=1;i<=3;i++){
   setTimeout(function(){
-      console.log(i);    
-  },0);  
+      console.log(i);
+  },0);
 };
 ```
 
@@ -421,4 +421,55 @@ Object.prototype.clone = function(){
         }
         return o;
 }
+```
+
+```js
+//方法二：
+  /**
+     * 克隆一个对象
+     */ 
+    function clone(Obj) {   
+        var buf;   
+        if (Obj instanceof Array) {   
+            buf = [];                    //创建一个空的数组 
+            var i = Obj.length;   
+            while (i--) {   
+                buf[i] = clone(Obj[i]);   
+            }   
+            return buf;    
+        }else if (Obj instanceof Object){   
+            buf = {};                   //创建一个空对象 
+            for (var k in Obj) {           //为这个对象添加新的属性 
+                buf[k] = clone(Obj[k]);   
+            }   
+            return buf;   
+        }else{                         //普通变量直接赋值
+            return Obj;   
+        }   
+    }
+```
+
+### 28.如何消除一个数组里面重复的元素？
+
+```js
+var arr=[1,2,3,3,4,4,5,5,6,1,9,3,25,4];
+        function deRepeat(){
+            var newArr=[];
+            var obj={};
+            var index=0;
+            var l=arr.length;
+            for(var i=0;i<l;i++){
+                if(obj[arr[i]]==undefined)
+                  {
+                    obj[arr[i]]=1;
+                    newArr[index++]=arr[i];
+                  }
+                else if(obj[arr[i]]==1)
+                  continue;
+            }
+            return newArr;
+
+        }
+        var newArr2=deRepeat(arr);
+        alert(newArr2); //输出1,2,3,4,5,6,9,25
 ```
