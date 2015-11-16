@@ -453,23 +453,36 @@ Object.prototype.clone = function(){
 
 ```js
 var arr=[1,2,3,3,4,4,5,5,6,1,9,3,25,4];
-        function deRepeat(){
-            var newArr=[];
-            var obj={};
-            var index=0;
-            var l=arr.length;
-            for(var i=0;i<l;i++){
-                if(obj[arr[i]]==undefined)
-                  {
-                    obj[arr[i]]=1;
-                    newArr[index++]=arr[i];
-                  }
-                else if(obj[arr[i]]==1)
-                  continue;
-            }
-            return newArr;
+	function deRepeat(){
+		var newArr=[];
+		var obj={};
+		var index=0;
+		var l=arr.length;
+		for(var i=0;i<l;i++){
+			if(obj[arr[i]]==undefined)
+			  {
+				obj[arr[i]]=1;
+				newArr[index++]=arr[i];
+			  }
+			else if(obj[arr[i]]==1)
+			  continue;
+		}
+		return newArr;
 
-        }
-        var newArr2=deRepeat(arr);
-        alert(newArr2); //输出1,2,3,4,5,6,9,25
+	}
+	var newArr2=deRepeat(arr);
+	alert(newArr2); //输出1,2,3,4,5,6,9,25
+```
+
+### 29.小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)。从这段描述可以得到以下对象：
+
+```js
+function Dog() {
+       this.wow = function() {
+               alert(’Wow’);
+      }
+       this.yelp = function() {
+              this.wow();
+      }
+}
 ```
