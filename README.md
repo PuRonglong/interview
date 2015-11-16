@@ -486,3 +486,58 @@ function Dog() {
       }
 }
 ```
+
+小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了(MadDog)，一看到人就会每隔半秒叫一声(wow)地不停叫唤(yelp)。<br  />
+请根据描述，按示例的形式用代码来实现。（继承，原型，setInterval）
+
+```js
+function MadDog() {
+    this.yelp = function() {
+          var self = this;          
+          setInterval(function() {
+                self.wow();      
+          }, 500);
+      }
+}
+MadDog.prototype = new Dog();
+
+//for test
+var dog = new Dog();
+dog.yelp();
+var madDog = new MadDog();
+madDog.yelp();
+```
+
+### 30.下面这个ul，如何点击每一列的时候alert其index?
+
+```js
+<ul id=”test”>
+	<li>这是第一条</li>
+	<li>这是第二条</li>
+	<li>这是第三条</li>
+</ul>
+```
+答案:
+
+```js
+// 方法一：
+var lis=document.getElementById('test').getElementsByTagName('li');
+for(var i=0;i<3;i++){
+    lis[i].index=i;
+    lis[i].onclick=function(){
+        alert(this.index);
+    };
+}
+
+//方法二：
+var lis=document.getElementById('test').getElementsByTagName('li');
+for(var i=0;i<3;i++){
+    lis[i].index=i;
+    lis[i].onclick=(function(a){
+        return function() {
+            alert(a);
+        }
+    })(i);
+}
+```
+### 31.
