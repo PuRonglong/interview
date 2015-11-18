@@ -521,7 +521,7 @@ madDog.yelp();
 
 ```js
 // 方法一：
-var lis=document.getElementById('test').getElementsByTagName('li');
+var lis = document.getElementById('test').getElementsByTagName('li');
 for(var i=0;i<3;i++){
     lis[i].index=i;
     lis[i].onclick=function(){
@@ -530,7 +530,7 @@ for(var i=0;i<3;i++){
 }
 
 //方法二：
-var lis=document.getElementById('test').getElementsByTagName('li');
+var lis = document.getElementById('test').getElementsByTagName('li');
 for(var i=0;i<3;i++){
     lis[i].index=i;
     lis[i].onclick=(function(a){
@@ -540,5 +540,7 @@ for(var i=0;i<3;i++){
     })(i);
 }
 ```
+两种方法,一种通过this来解决,一种通过闭包的形式
+
 ### 31.编写一个JavaScript函数，输入指定类型的选择器(仅需支持id，class，tagName三种简单CSS选择器，<br  />
 无需兼容组合选择器)可以返回匹配的DOM节点，需考虑浏览器兼容性和性能
