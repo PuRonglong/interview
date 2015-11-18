@@ -540,7 +540,108 @@ for(var i=0;i<3;i++){
     })(i);
 }
 ```
-两种方法,一种通过this来解决,一种通过闭包的形式
+两种方法,一种通过this来解决,一种通过闭包的形式,体现了两种不同的思路
 
 ### 31.编写一个JavaScript函数，输入指定类型的选择器(仅需支持id，class，tagName三种简单CSS选择器，<br  />
 无需兼容组合选择器)可以返回匹配的DOM节点，需考虑浏览器兼容性和性能
+
+```js
+var query = function(selector) {
+                var reg = /^(#)?(\.)?(\w+)$/img;
+                var regResult = reg.exec(selector);
+                var result = [];
+                //如果是id选择器
+                if(regResult[1]) {
+                    if(regResult[3]) {
+                        if(typeof document.querySelector === "function") {
+                            result.push(document.querySelector(regResult[3]));
+                        }
+                        else {
+                            result.push(document.getElementById(regResult[3]));
+                        }
+                    }
+                }
+                //如果是class选择器
+                else if(regResult[2]) {
+                    if(regResult[3]) {
+                        if(typeof document.getElementsByClassName === 'function') {
+                            var doms = document.getElementsByClassName(regResult[3]);
+                            if(doms) {
+                                result = converToArray(doms);
+                            }
+                        }
+                        //如果不支持getElementsByClassName函数
+                        else {
+                            var allDoms = document.getElementsByTagName("*") ;
+                            for(var i = 0, len = allDoms.length; i < len; i++) {
+                                if(allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
+                                    result.push(allDoms[i]);
+                                }
+                            }
+                        }
+                    }
+                }
+                //如果是标签选择器
+                else if(regResult[3]) {
+                    var doms = document.getElementsByTagName(regResult[3].toLowerCase());
+                    if(doms) {
+                        result = converToArray(doms);
+                    }
+                }
+                return result;
+            }
+
+            function converToArray(nodes){
+                  var array = null;         
+                  try{        
+                        array = Array.prototype.slice.call(nodes,0);//针对非IE浏览器         
+                  }catch(ex){
+                      array = new Array();         
+                      for( var i = 0 ,len = nodes.length; i < len ; i++ ) { 
+                          array.push(nodes[i])         
+                      }         
+                  }      
+                  return array;
+          }
+```
+
+### 32.请评价以下代码并给出改进意见。
+
+```js
+if(window.addEventListener){
+    var addListener = function(el, type, listener, useCapture){
+        el.addEventListener(type, listener, useCapture);
+  };
+}
+else if(document.all){
+    addListener = function(el, type, listener){
+        el.attachEvent("on" + type, function(){
+          listener.apply(el);
+      });
+   }  
+}
+```
+
+评价：
+
+* 不应该在`if`和`else`语句中声明`addListener`函数，应该先声明；-----函数的声明会提前,将其提取出来比较直观些,代码不容易乱.
+* 不需要使用`window.addEventListener`或`document.all`来进行检测浏览器，应该使用能力检测；
+* 由于`attachEvent`在IE中有this指向问题，所以调用它时需要处理一下
+
+　改进如下： 
+
+```js
+function addEvent(elem, type, handler){
+　　if(elem.addEventListener){
+　　　　elem.addEventListener(type, handler, false);
+　　}else if(elem.attachEvent){
+　　　　elem['temp' + type + handler] = handler;
+　　　　elem[type + handler] = function(){
+　　　　elem['temp' + type + handler].apply(elem);
+　　};
+　　elem.attachEvent('on' + type, elem[type + handler]);　
+  }else{
+　　elem['on' + type] = handler;
+　　}
+}
+```
