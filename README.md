@@ -645,3 +645,20 @@ function addEvent(elem, type, handler){
 　　}
 }
 ```
+
+### 33.给String对象添加一个方法，传入一个string类型的参数，然后将string的每个字符间价格空格返回，例如：<br  />
+addSpace("hello world") // -> 'h e l l o  w o r l d'
+
+```js
+String.prototype.addSpace = function(){
+       return this.split('').join(' ');
+     };
+```
+
+接着上述答题，那么问题来了:
+
+1. 直接在对象的原型上添加方法是否安全？尤其是在Object对象上。(这个我没能答出？希望知道的说一下。)
+2. 函数声明与函数表达式的区别？
+
+答案：在Javscript中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明,
+并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行。（函数声明提升）
