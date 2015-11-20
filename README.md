@@ -662,3 +662,46 @@ String.prototype.addSpace = function(){
 
 答案：在Javscript中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明,
 并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行。（函数声明提升）
+
+### 34.定义一个log方法，让它可以代理console.log的方法。
+
+```js
+//方法一:
+function log(msg)　{
+    console.log(msg);
+}
+
+log("hello world!") // hello world!
+```
+
+如果要传入多个参数呢？显然上面的方法不能满足要求，所以更好的方法是：
+
+```js
+function log(){
+     console.log.apply(console, arguments);
+ };
+```
+
+那么问题来了，apply和call方法的异同？　　
+
+答案：
+
+对于apply和call两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由`thisObj`指定的新对象。
+
+但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。 如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]) 。
+
+### 35.在Javascript中什么是伪数组？如何将伪数组转化为标准数组？
+
+答案：
+
+伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。
+
+假设接前面题干，我们要给每个log方法添加一个"(app)"前缀，比如'hello world!' ->'(app)hello world!'。方法如下：
+
+```js
+function log(){
+      var args = Array.prototype.slice.call(arguments);  //为了使用unshift数组方法，将argument转化为真正的数组
+      args.unshift('(app)');
+      console.log.apply(console, args);
+    };
+```
