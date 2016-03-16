@@ -3,12 +3,12 @@
 ### 1.javascript是一门什么样的语言，它有哪些特点？
 
 ### 2.javascript的数据类型都有什么？<br  />
-基本类型(undefined,null,number,string,boolean)；<br  />
-引用类型(object:array,data,regex,function)。<br  />
+基本类型(undefined，null，number，string，boolean)；<br  />
+引用类型(object:array，data，regex，function)。<br  />
 引用类型里又有个引申问题就是说如何判断是否为数组数据类型，出处给出了三种方法：<br  />
 方法一.判断其是否具有“数组性质”，如slice()方法。可自己给该变量定义slice方法，故有时会失效<br  />
 方法二.obj instanceof Array 在某些IE版本中不正确<br  />
-方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray(), 保证其兼容性<br  />
+方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray()， 保证其兼容性<br  />
 
 ### 3.已知ID的input输入框，希望获取这个输入框的输入值，怎么做？(不使用第三方框架)<br  />
 document.getElementById(“ID”).value
@@ -29,10 +29,10 @@ console.log(array);
 让我们再挖掘些别的涉及到的知识点<br  />
 --i 和 i-- 有什么区别？i——是先使用i的值作为i——的值，然后，执行i=i-1操作<br  />
 ```js
-var i=4,j,k;
+var i=4，j，k;
 j=i--;
 k=--i;
-console.log(i,j,k);//2,4,2
+console.log(i，j，k);//2，4，2
 ```
 
 ### 5.设置一个已知id的div的html内容为xxxx，字体颜色设置为黑色(不使用第三方框架)<br  />
@@ -43,7 +43,7 @@ div.style.color = "#000";
 ```
 考察对dom节点的操作
 
-那么这里又让我们来探讨一下innerHTML吧,w3school上的定义是：innerHTML属性设置或返回表格行的开始和结束标签之间的html，而有一个document.write()经常拿来和它做比较，w3school说write方法可向文档写入html表达式和javascript代码。
+那么这里又让我们来探讨一下innerHTML吧，w3school上的定义是：innerHTML属性设置或返回表格行的开始和结束标签之间的html，而有一个document.write()经常拿来和它做比较，w3school说write方法可向文档写入html表达式和javascript代码。
 
 其实这两者还是有很多不同之处的，让我们来缕一缕：
 
@@ -60,11 +60,11 @@ document.write("<h1>Hello World!</h1>")
 三种方式执行一个函数<br  />
 dom里绑定<br  />
 在js里绑定<br  />
-通过事件添加,添加addEventListener<br  />
+通过事件添加，添加addEventListener<br  />
 
 * 直接在DOM里绑定事件：<div onclick="test()"></div>
 * 在JS里通过onclick绑定：xxx.onclick = test
-* 通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)
+* 通过事件添加进行绑定：addEventListener(xxx， ‘click’， test)
 
 那么又有问题了，Javascript的事件流(事件发生顺序)模型都有什么？又都是由谁提出的呢?
 
@@ -73,22 +73,22 @@ dom里绑定<br  />
 “DOM事件流”有三个阶段：事件捕捉，目标阶段，事件冒泡
 
 ### 7.什么是Ajax和JSON，它们的优缺点。<br  />
-Ajax是异步javascript和xml,用于在web页中实现异步数据交互<br  />
+Ajax是异步javascript和xml，用于在web页中实现异步数据交互<br  />
 优点:<br  />
-局部加载,降低数据传输量<br  />
-避免不断跳转,提高用户体验<br  />
+局部加载，降低数据传输量<br  />
+避免不断跳转，提高用户体验<br  />
 缺点:<br  />
 对搜索引擎不友好<br  />
 可能造成请求数增加<br  />
-跨域问题:jsonp,<br  />
+跨域问题:jsonp，<br  />
 
 那么什么是跨域问题呢?jsonp与json有什么区别呢?
 
-关于跨域的概念:只要协议,域名,端口有任何一个不同,都被当做是不同的域.
-jsonp(json with padding)也叫填充式json,可以认为是被包含在函数调用中的json:
+关于跨域的概念:只要协议，域名，端口有任何一个不同，都被当做是不同的域.
+jsonp(json with padding)也叫填充式json，可以认为是被包含在函数调用中的json:
 
 ```
-callback({"name","trigkit4"});
+callback({"name"，"trigkit4"});
 ```
 
 参考资料:
@@ -99,14 +99,14 @@ callback({"name","trigkit4"});
 ### 8.看下列代码输出为何？解释原因。<br  />
 ```js
 var a;
-alert(typeof a); // undefined
-alert(b); // 报错
+alert(typeof a); //undefined
+alert(b); //报错
 ```
 在使用var声明变量但并未对其赋值进行初始化时，这个变量的值就是undefined。而b由于未声明将报错。注意未申明的变量和声明了未赋值的是不一样的。<br  />
 typeof用来返回数据类型<br  />
 instanceof用来检测某个对象是不是另一个对象的实例<br  />
 
-### 9.看下列代码,输出什么？解释原因。<br  />
+### 9.看下列代码，输出什么？解释原因。<br  />
 ```js
 var a = null;
 alert(typeof a); //object
@@ -114,7 +114,7 @@ alert(typeof a); //object
 null是一个只有一个值的数据类型，这个值就是null。表示一个空指针对象，所以用typeof检测会返回”object”。<br  />
 如:typeof(null);//object
 
-### 10.看下列代码,输出什么？解释原因。<br  />
+### 10.看下列代码，输出什么？解释原因。<br  />
 ```js
 var undefined;
 undefined == null;//true undefined和null相等;
@@ -124,8 +124,11 @@ undefined == null;//true undefined和null相等;
 0 == '';//true
 NaN == NaN;//false
 [] == false;//true
-[] == ![];//false;错误应为true  因为![]是个布尔值,为false,因此我们比较的是[] == 0;
+[] == ![];//false;错误应为true  因为![]是个布尔值，为false，因此我们比较的是[] == 0;
 ```
+
+**==会把比较的二者进行类型转换**
+
 null用来表示尚未存在的对象<br  />
 undefined是声明的变量尚未初始化
 
@@ -138,7 +141,7 @@ undefined是声明的变量尚未初始化
 ```
 0 == '0';//true
 [] == [];//false
-[] == !{};//true;因为!{}是个布尔值,为false,因此我们比较的是[] == 0;
+[] == !{};//true;因为!{}是个布尔值，为false，因此我们比较的是[] == 0;
 
 ```
 var foo = "11"+2-"1";
@@ -146,7 +149,7 @@ console.log(foo);
 console.log(typeof foo);
 ```
 
-值为111,类型为number
+值为111，类型为number
 
 ### 11.看代码给答案<br  />
 ```js
@@ -157,24 +160,24 @@ b.value = 2;
 console.log(a.value);//2
 ```
 
-这里考察数据类型:对于基本类型和引用类型的区别,引用数据类型细节.
+这里考察数据类型:对于基本类型和引用类型的区别，引用数据类型细节.
 
-### 12.已知数组var stringArray = [“This”, “is”, “Baidu”, “Campus”]，Alert出”This is Baidu Campus”。<br  />
+### 12.已知数组var stringArray = [“This”， “is”， “Baidu”， “Campus”]，Alert出”This is Baidu Campus”。<br  />
 
 alert(stringArray.join(" "));
 
-这里考察数组的一些方法了,w3school对join的定义和用法如下:<br  />
+这里考察数组的一些方法了，w3school对join的定义和用法如下:<br  />
 join方法用于把数组中的所有元素放入一个字符串<br  />
 元素是通过指定的分隔符进行分隔的<br  />
 
-那么问题来了，已知有字符串foo="get-element-by-id",写一个function将其转化成驼峰表示法"getElementById"。
+那么问题来了，已知有字符串foo="get-element-by-id"，写一个function将其转化成驼峰表示法"getElementById"。
 
 ```js
 function combo(msg){
     var arr = msg.split("-");
     var len = arr.length;    //将arr.length存储在一个局部变量可以提高for循环效率
     for(var i=1;i<len;i++){
-        arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1);
+        arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1，arr[i].length-1);
     }
     msg=arr.join("");
     return msg;
@@ -182,21 +185,21 @@ function combo(msg){
 ```
 考察基础API
 
-### 13.var numberArray = [3, 6, 2, 4, 1, 5];
+### 13.var numberArray = [3， 6， 2， 4， 1， 5];
 
-1)实现对该数组的倒排,输出[5, 1, 4, 2, 6, 3]<br  />
-2)实现对该数组的降序排列,输出[6, 5, 4, 3, 2, 1]
+1)实现对该数组的倒排，输出[5， 1， 4， 2， 6， 3]<br  />
+2)实现对该数组的降序排列，输出[6， 5， 4， 3， 2， 1]
 
 ```js
-var numberArray = [3, 6, 2, 4, 1, 5];
-numberArray.reverse();//5, 1, 4, 2, 6, 3
-numberArray.sort(function(a,b){//6, 5, 4, 3, 2, 1
+var numberArray = [3， 6， 2， 4， 1， 5];
+numberArray.reverse();//5， 1， 4， 2， 6， 3
+numberArray.sort(function(a，b){//6， 5， 4， 3， 2， 1
 	return b-a;
 	})
 ```
-reverse()方法用于颠倒数组中元素的顺序.该方法会改变原来的数组,而不会创建新的数组
+reverse()方法用于颠倒数组中元素的顺序.该方法会改变原来的数组，而不会创建新的数组
 
-sort()方法用于对数组的元素进行由小到大排序,提供比较函数后可以按照其他标准进行排序
+sort()方法用于对数组的元素进行由小到大排序，提供比较函数后可以按照其他标准进行排序
 
 考察数组的相关操作
 
@@ -204,8 +207,8 @@ sort()方法用于对数组的元素进行由小到大排序,提供比较函数�
 
 ```js
 var date = new Date();
-var year = date.getFullYear();//获取年,返回四位
-var month = date.getMonth() + 1;//获取月份,0是1月
+var year = date.getFullYear();//获取年，返回四位
+var month = date.getMonth() + 1;//获取月份，0是1月
 month = month < 10 ? '0' + month : month;//让月份显示两位
 var day = date.getDate();//获取日
 day = day < 10 ? '0' + day : day;//让天数显示两位
@@ -215,28 +218,26 @@ console.log(year + '-' + month + '-' + day);
 
 ### 15.将字符串”<tr><td>{id}</td><td>{name}</td></tr>”中的{id}替换成10，{name}替换成Tony （使用正则表达式）
 
-答案："<tr><td>{id}</td><td>{id}_{$name}</td></tr>".replace(/{\$id}/g, '10').replace(/{\$name}/g, ‘Tony’);
+答案："<tr><td>{id}</td><td>{id}_{$name}</td></tr>".replace(/{\$id}/g， '10').replace(/{\$name}/g， ‘Tony’);
 
-### 16.为了保证页面输出安全，我们经常需要对一些特殊的字符进行转义，请写一个函数escapeHtml，将<, >, &, “进行转义.
+### 16.为了保证页面输出安全，我们经常需要对一些特殊的字符进行转义，请写一个函数escapeHtml，将<， >， &， “进行转义.
 
-```js
-function escapeHtml(str){
-	return str.replace(/[<>"&]/g, function(match){
-		switch(match){
-			case "<";
-				return "&lt;";
-			case ">":
-				return "&gt;";
-			case “&”:
-            	return “&amp;”;
-            case “\””:
-            	return “&quot;”;
-		}
-	}
-}
-```
+    function escapeHtml(str){
+    	return str.replace(/[<>"&]/g， function(match){
+    		switch(match){
+    			case "<";
+    				return "&lt;";
+    			case ">":
+    				return "&gt;";
+    			case “&”:
+              	return “&amp;”;
+              case “\””:
+              	return “&quot;”;
+    		}
+    	}
+    }
 
-### 17.foo = foo||bar ，这行代码是什么意思？为什么要这样写？
+### 17.foo = foo||bar ，这行代码是什么意思？为什么要这样写？。
 
 答案：if(!foo) foo = bar; //如果foo存在，值不变，否则把bar的值赋给foo。
 
@@ -254,8 +255,8 @@ function a(){
 a();
 ```
 
-输出undefined和2.这里的一个考察点在于变量声明提前.也就是```var foo = 2;```其实应该拆分为两部分,var foo;和foo = 2;前者是声明,会提前,
-后者是赋值,不会提前
+输出undefined和2.这里的一个考察点在于变量声明提前.也就是```var foo = 2;```其实应该拆分为两部分，var foo;和foo = 2;前者是声明，会提前，
+后者是赋值，不会提前
 
 函数声明与变量声明会被JavaScript引擎隐式地提升到当前作用域的顶部，但是只提升名称不会提升赋值部分。
 
@@ -272,29 +273,29 @@ array.sort();
 
 ```js
 var iArray = [];
-function getRandom(start,end){   
+function getRandom(start，end){   
 	var Range = end - start;    
 	return (start +(Math.random() * Range));   
 }   
 for(var i=0; i<10; i++){
-    iArray.push(getRandom(10,100));
+    iArray.push(getRandom(10，100));
 }
 console.log(iArray);
 ```
-这里原答案有几处粗心的错误,一个是function没有写c,一个是()没有写全,其中function那个错误还找了好久没有找到问题,因为自己没有写function的
+这里原答案有几处粗心的错误，一个是function没有写c，一个是()没有写全，其中function那个错误还找了好久没有找到问题，因为自己没有写function的
 方法就没有比对着看.
 
-### 20.把两个数组合并,并删除第二个元素
+### 20.把两个数组合并，并删除第二个元素
 
 ```js
-var array1 = ['a', 'b', 'c'];
-var array2 = ['d', 'e', 'f'];
+var array1 = ['a'， 'b'， 'c'];
+var array2 = ['d'， 'e'， 'f'];
 var array3 = array1.concat(array2);
-array3.splice(1, 1);
+array3.splice(1， 1);
 ```
 concat的连接让我想到mysql里也是这个连接符.这是和别的sql语句不同的地方
 
-考察的还是数组的相关操作,那就把数组的相关操作总结一下:
+考察的还是数组的相关操作，那就把数组的相关操作总结一下:
 
 ### 21.怎样添加、移除、移动、复制、创建和查找节点（原生JS，实在基础，没细写每一步)
 
@@ -305,7 +306,7 @@ createElement()//创建一个具体的元素
 createTextNode()//创建一个文本节点
 ```
 
-2)添加,移除,替换,插入
+2)添加，移除，替换，插入
 ```js
 appendChild()//添加
 removeChild()//移除
@@ -317,25 +318,25 @@ insertBefore()//插入
 ```js
 getElementsByTagName()//通过标签名称
 getElementsByName()//通过元素的Name属性的值
-getElementById()//通过元素id,唯一性
+getElementById()//通过元素id，唯一性
 ```
 
 ### 22.有这样一个URL：http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e，请写一段JS程序提取URL中的各个GET参数(参数名
-和参数个数不确定)，将其按key-value形式返回到一个json结构中，如{a:'1', b:'2', c:'', d:'xxx', e:undefined}。
+和参数个数不确定)，将其按key-value形式返回到一个json结构中，如{a:'1'， b:'2'， c:''， d:'xxx'， e:undefined}。
 
 ```js
 function serilizeUrl(url) {
     var result = {};
     url = url.split("?")[1];
     var map = url.split("&");
-    for(var i = 0, len = map.length; i < len; i++) {
+    for(var i = 0， len = map.length; i < len; i++) {
         result[map[i].split("=")[0]] = map[i].split("=")[1];
     }
     return result;
 }
 ```
 
-w3cshool:split()方法用于把一个字符串分割成字符串数组.主要还是考察数组相关方法,干脆总结下数组大概有哪些方法:splice等
+w3cshool:split()方法用于把一个字符串分割成字符串数组.主要还是考察数组相关方法，干脆总结下数组大概有哪些方法:splice等
 
 ### 23.正则表达式构造函数var reg=new RegExp("xxx")与正则表达字面量var reg=//有什么不同？匹配邮箱的正则表达式？
 
@@ -343,10 +344,10 @@ w3cshool:split()方法用于把一个字符串分割成字符串数组.主要还
 
 邮箱的正则匹配:
 ```js
-var regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+var regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2，3}){1，2})$/;
 ```
 
-关于正则的相关匹配,这里有篇对匹配URL比较详细的:
+关于正则的相关匹配，这里有篇对匹配URL比较详细的:
 [更靠谱一些的正则表达式验证URL](http://www.soulteary.com/2014/12/05/better-url-regexp-in-js.html)
 
 ### 24.看下面代码，给出输出结果。
@@ -355,13 +356,13 @@ var regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 for(var i=1;i<=3;i++){
   setTimeout(function(){
       console.log(i);
-  },0);
+  }，0);
 };
 ```
 
-结果是4,4,4
+结果是4，4，4
 
-这是一个老生常谈的经典问题了,涉及异步和闭包的问题
+这是一个老生常谈的经典问题了，涉及异步和闭包的问题
 
 http://www.bubuko.com/infodetail-1183545.html
 
@@ -370,7 +371,7 @@ http://www.bubuko.com/infodetail-1183545.html
 ```js
 if (!String.prototype.trim) { 
  String.prototype.trim = function() { 
- return this.replace(/^\s+/, "").replace(/\s+$/,"");
+ return this.replace(/^\s+/， "").replace(/\s+$/，"");
  } 
 } 
 
@@ -452,7 +453,7 @@ Object.prototype.clone = function(){
 ### 28.如何消除一个数组里面重复的元素？
 
 ```js
-var arr=[1,2,3,3,4,4,5,5,6,1,9,3,25,4];
+var arr=[1，2，3，3，4，4，5，5，6，1，9，3，25，4];
 	function deRepeat(){
 		var newArr=[];
 		var obj={};
@@ -471,7 +472,7 @@ var arr=[1,2,3,3,4,4,5,5,6,1,9,3,25,4];
 
 	}
 	var newArr2=deRepeat(arr);
-	alert(newArr2); //输出1,2,3,4,5,6,9,25
+	alert(newArr2); //输出1，2，3，4，5，6，9，25
 ```
 
 ### 29.小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)。从这段描述可以得到以下对象：
@@ -496,7 +497,7 @@ function MadDog() {
           var self = this;          
           setInterval(function() {
                 self.wow();      
-          }, 500);
+          }， 500);
       }
 }
 MadDog.prototype = new Dog();
@@ -540,7 +541,7 @@ for(var i=0;i<3;i++){
     })(i);
 }
 ```
-两种方法,一种通过this来解决,一种通过闭包的形式,体现了两种不同的思路
+两种方法，一种通过this来解决，一种通过闭包的形式，体现了两种不同的思路
 
 ### 31.编写一个JavaScript函数，输入指定类型的选择器(仅需支持id，class，tagName三种简单CSS选择器，<br  />
 无需兼容组合选择器)可以返回匹配的DOM节点，需考虑浏览器兼容性和性能
@@ -573,7 +574,7 @@ var query = function(selector) {
                         //如果不支持getElementsByClassName函数
                         else {
                             var allDoms = document.getElementsByTagName("*") ;
-                            for(var i = 0, len = allDoms.length; i < len; i++) {
+                            for(var i = 0， len = allDoms.length; i < len; i++) {
                                 if(allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
                                     result.push(allDoms[i]);
                                 }
@@ -594,10 +595,10 @@ var query = function(selector) {
             function converToArray(nodes){
                   var array = null;         
                   try{        
-                        array = Array.prototype.slice.call(nodes,0);//针对非IE浏览器         
+                        array = Array.prototype.slice.call(nodes，0);//针对非IE浏览器         
                   }catch(ex){
                       array = new Array();         
-                      for( var i = 0 ,len = nodes.length; i < len ; i++ ) { 
+                      for( var i = 0 ，len = nodes.length; i < len ; i++ ) { 
                           array.push(nodes[i])         
                       }         
                   }      
@@ -609,13 +610,13 @@ var query = function(selector) {
 
 ```js
 if(window.addEventListener){
-    var addListener = function(el, type, listener, useCapture){
-        el.addEventListener(type, listener, useCapture);
+    var addListener = function(el， type， listener， useCapture){
+        el.addEventListener(type， listener， useCapture);
   };
 }
 else if(document.all){
-    addListener = function(el, type, listener){
-        el.attachEvent("on" + type, function(){
+    addListener = function(el， type， listener){
+        el.attachEvent("on" + type， function(){
           listener.apply(el);
       });
    }  
@@ -624,22 +625,22 @@ else if(document.all){
 
 评价：
 
-* 不应该在`if`和`else`语句中声明`addListener`函数，应该先声明；-----函数的声明会提前,将其提取出来比较直观些,代码不容易乱.
+* 不应该在`if`和`else`语句中声明`addListener`函数，应该先声明；-----函数的声明会提前，将其提取出来比较直观些，代码不容易乱.
 * 不需要使用`window.addEventListener`或`document.all`来进行检测浏览器，应该使用能力检测；
 * 由于`attachEvent`在IE中有this指向问题，所以调用它时需要处理一下
 
 　改进如下： 
 
 ```js
-function addEvent(elem, type, handler){
+function addEvent(elem， type， handler){
 　　if(elem.addEventListener){
-　　　　elem.addEventListener(type, handler, false);
+　　　　elem.addEventListener(type， handler， false);
 　　}else if(elem.attachEvent){
 　　　　elem['temp' + type + handler] = handler;
 　　　　elem[type + handler] = function(){
 　　　　elem['temp' + type + handler].apply(elem);
 　　};
-　　elem.attachEvent('on' + type, elem[type + handler]);　
+　　elem.attachEvent('on' + type， elem[type + handler]);　
   }else{
 　　elem['on' + type] = handler;
 　　}
@@ -660,7 +661,7 @@ String.prototype.addSpace = function(){
 1. 直接在对象的原型上添加方法是否安全？尤其是在Object对象上。(这个我没能答出？希望知道的说一下。)
 2. 函数声明与函数表达式的区别？
 
-答案：在Javscript中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明,
+答案：在Javscript中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明，
 并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行。（函数声明提升）
 
 ### 34.定义一个log方法，让它可以代理console.log的方法。
@@ -678,7 +679,7 @@ log("hello world!") // hello world!
 
 ```js
 function log(){
-     console.log.apply(console, arguments);
+     console.log.apply(console， arguments);
  };
 ```
 
@@ -688,13 +689,13 @@ function log(){
 
 对于apply和call两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由`thisObj`指定的新对象。
 
-但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。 如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]) 。
+但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。 如 func.call(func1，var1，var2，var3)对应的apply写法为：func.apply(func1，[var1，var2，var3]) 。
 
 ### 35.在Javascript中什么是伪数组？如何将伪数组转化为标准数组？
 
 答案：
 
-伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。
+伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName，document.childNodes之类的，它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。
 
 假设接前面题干，我们要给每个log方法添加一个"(app)"前缀，比如'hello world!' ->'(app)hello world!'。方法如下：
 
@@ -702,7 +703,7 @@ function log(){
 function log(){
       var args = Array.prototype.slice.call(arguments);  //为了使用unshift数组方法，将argument转化为真正的数组
       args.unshift('(app)');
-      console.log.apply(console, args);
+      console.log.apply(console， args);
     };
 ```
 
