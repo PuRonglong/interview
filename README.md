@@ -336,7 +336,7 @@ function serilizeUrl(url) {
 }
 ```
 
-w3cshool:split()方法用于把一个字符串分割成字符串数组.主要还是考察数组相关方法，干脆总结下数组大概有哪些方法:splice等
+w3cshool:split()方法用于把一个字符串分割成字符串数组。主要还是字符串的相关方法。
 
 ### 23.正则表达式构造函数var reg=new RegExp("xxx")与正则表达字面量var reg=//有什么不同？匹配邮箱的正则表达式？
 
@@ -394,14 +394,14 @@ function fn(n){  //典型的斐波那契数列
    if(n==1){
         return 1;
    }else if(n==2){
-           return 1;
+        return 16543
    }else{
         if(result[n]){
-                return result[n];
+            return result[n];
         }else{
-                //argument.callee()表示fn()
-                result[n]=arguments.callee(n-1)+arguments.callee(n-2);
-                return result[n];
+            //argument.callee()表示fn()
+            result[n]=arguments.callee(n-1)+arguments.callee(n-2);
+            return result[n];
         }
    }
 }
@@ -472,7 +472,7 @@ var arr=[1，2，3，3，4，4，5，5，6，1，9，3，25，4];
 
 	}
 	var newArr2=deRepeat(arr);
-	alert(newArr2); //输出1，2，3，4，5，6，9，25
+	console.log(newArr2); //输出1，2，3，4，5，6，9，25
 ```
 
 ### 29.小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)。从这段描述可以得到以下对象：
@@ -710,6 +710,7 @@ function log(){
 ### 36.
 
 有没有读过jquery 的源码， 用jquery的好处是什么？
+
 从underscore.js的源码中学到了什么？
 
 3) angularjs的脏检测如何实现的？
@@ -717,4 +718,181 @@ function log(){
   一般来说，会有一个监控函数，进行脏值检查的时候，会比较它的返回值和上一次返回值的差异。如果不同，监听器就是脏的，它的监听函数就应当被调用。
 
 最近了解了哪些前端的新技术？
+
 对原生js如何理解的，讲讲闭包和原型链。
+
+### 37.js数组去重：
+
+方法一：
+
+    function isRepeated(arr){
+        var newArr = [], obj = {};
+        var length = arr.length;
+        for(var i = 0; i < length; i++){
+            if(!obj[arr[i]]){
+                newArr.push(arr[i]);
+                obj[arr[i]] = 1;
+            }
+        }
+        return newArr;
+    }
+
+方法二：
+
+    function isRepeated(arr){
+        var newArr = [];
+        var length = arr.length;
+        for(var i = 0; i < length; i++){
+            var repeat = false;
+            for(var j = 0; j < length; j++){
+                if(arr[i] == newArr[j]){
+                    repeat = true;
+                    break;
+                }
+            }
+            if(!repeat){
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+
+### 38.js中的this
+
+在主流的面向对象的编程语言中，如java，c#等，this含义是明确并具体的，即指向当前对象，在javascript中this是在运行期进行绑定的，这是javascript中this具有多重含义的本质原因。
+
+图解javascript this指向什么？
+http://www.cnblogs.com/isaboy/archive/2015/10/29/javascript_this.html
+
+### 39.js稀疏数组
+
+看到这样一个题：如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标？
+
+    Array(100).map(function(x){
+        return x;
+    })
+
+但是以为这样就完了吗？too young。上面写法的返回结果是```[undefined × 100]```。这里就涉及一个js中稀疏数组和密集数组的问题了。
+
+js权威指南里这样定义，稀疏数组就是包含从0开始的不连续索引的数组。如：
+
+    a = new Array(5);//这个数组没有元素，但a.length是5
+
+可以用Array()构造函数或简单地指定数组索引值大于当前数组长度来创建稀疏数组。或者可以使用delete操作符，delete掉其中一个元素来产生稀疏数组。
+
+如果像上面题目中那样，其实是对一个并没有元素的数组进行map操作，所以结果会是undefined。
+
+密集数组的数组元素之间是紧密相连的。这个紧密相连指的是数组元素的存储空间，与稀疏数组的不连续索引相对。下面这样就是创建一个密集数组：
+
+    var a = [1, 2, 3, 3];
+
+或者这样创建密集数组：
+
+    var dense = Array.apply(null, Array(3));
+
+那么两者的主要区别是什么：
+
+稀疏数组：
+
+     var array = new Array(3); 
+     array[2] = "name";
+     
+     for(var a in array) 
+     {
+        console.log("index=" + a + ",value=" + array[a]);
+     }
+
+结果：
+
+    index=2,value=name
+
+密集数组：
+
+     var dense = Array.apply(null, Array(3)); 
+     dense[2] = "name";
+     for(var a in dense) 
+     {
+        console.log("index=" + a + ",value=" + dense[a]);
+     }
+
+结果：
+
+    index=0,value=undefined
+    index=1,value=undefined
+    index=2,value=name
+
+从上面的例子可以看出，稀疏数组如果不赋值的话其实是没有元素的。而密集数组中即使没有定义值是多少，但也是有值的，只是是undefined罢了。
+
+知道原因以后我们来看看上面题目的正确打开姿势：
+
+    Object.keys(Array.apply(null,{length:100}));
+
+Object.keys()方法返回一个由给定对象的所有可枚举自身属性的属性名组成的数组。
+
+    Object.keys(Array.apply(null,{length:100}));
+    ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99"]
+
+而用es6方法就更简洁了：
+
+    Array.from(Array(100)).map(function(V,F){return F})
+
+或者精简一下：
+
+    Array.from(Array(100).keys()) 
+
+Array.from() 方法可以将一个类数组对象或可迭代对象转换成真正的数组。
+
+创建一个空的密集数组的正确方式：
+
+    Array.from({length:100})
+
+或者：
+
+    Array.apply(null, {length: 100});
+
+Array.apply(null,{length:100})方法会加分，原因在于{length:100}这种写法属于鸭子类型，是es5才支持，老浏览器必须传一个真正的Array(100) 这样进去才行，相对比较消耗性能。
+
+除了map，也可以考虑用递归实现循环的思路：
+
+    function fun1(arr, n){
+        if(n >= 100){
+            return arr;
+        }
+        arr.push(n);
+        return fun1(arr, n + 1);
+    }
+
+    var arr1 = fun1([], 0);
+    console.log(arr1);
+
+一个典型的递归函数：
+
+    function digui(num){
+        if(num < 1){
+            return 1;
+        }else{
+            return num*digui(num - 1);
+        }
+    }
+
+### 40.css盒模型
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
