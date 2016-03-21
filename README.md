@@ -877,21 +877,72 @@ Array.apply(null,{length:100})方法会加分，原因在于{length:100}这种�
 
 ### 40.css盒模型
 
+内容，内边距，边框，外边距，css盒子模式都具有这些属性，这些属性我们把它转移到生活中的盒子上来理解，这些盒子也具有这些属性，所以叫它盒子模式。
+
+css盒子模型有什么特点？
+
+1. 在盒子模型中，我们设置的宽度都是内容宽度，不是整个盒子的宽度。而整个盒子的宽度是：margin+border+padding+content。改变任一项，盒子的宽度都会改变。
+
+2. 前面提到，为盒子设置宽度，但这个宽度只是内容宽度，如何给整个盒子设置一个宽度？需要用到这个属性，box-sizing: border-box;
+
+3. 默认情况下，div的display:block，宽度会充满整个父容器，这时改变任何padding，margin，border都会导致内容宽度减少。
+
+4. 纵向margin重叠
+
+### 41.布局
+
+1.实现css居中的多种方式
+
+水平居中：
+
+margin: 0 auto;
+
+text-align: center;
+
+background-position: center;
+
+垂直居中：
+
+line-height = height;
+
+display: table-cell;vertical-align: middle;
+
+上下相同padding;
+
+margin: auto;
+
+水平垂直居中：
+
+left,top,margin-left: 负值,margin-top: 负值;
+
+top,left,transform:translate(-50%, -50%)
+
+display: flex;justify-content: center;align-items: center;
+
+2.如何通过css实现一个左列固定宽度，右列自适应宽度的两列布局
+
+左侧position: absolute;width: 30px;右侧margin-left:30px;
+
+浮动实现：float:left;margin-left;
+
+通过BFC规则实现#div-b-3{overflow: hidden;}
+
+3.如何实现一个左右宽度固定，中间自适应的三列布局——
+
+http://www.cnblogs.com/honoka/p/5161836.html
+
+左右两边浮动，中间设置宽度为100%，但是有个要注意的地方就是要中间这个元素放在两个浮动元素的后面。
+
+使用BFC，元素位置同样要遵守的上面的格式，左右元素在前，然后是主元素，只是不用设置width:100%，而是改为overflow:hidden;都是要保证左右两列优先渲染，接下来使主元素成为BFC块，不与两侧浮动元素叠加，则自然能够插入自己的位置。
+
+双飞翼布局：先放身体，再放翅膀，身体要包裹一个骨架，通过骨架将身体定位到正确的位置
+
+flex：设计一个弹性容器包裹三个容器，display: flex，然后将弹性容器的排列设置为横向排列：flex-flow: row，中间元素设置flex: 1
+
+### 42.BFC特点
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+### 43.求一个数组中出现次数最多的那个数
 
 
 
