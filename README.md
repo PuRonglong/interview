@@ -941,8 +941,88 @@ flex：设计一个弹性容器包裹三个容器，display: flex，然后将弹
 
 ### 42.BFC特点
 
+http://www.html-js.com/article/1866
+
+或者看看BFC都有哪些应用，哪些场景下可以用到BFC。
+
+1.解决margin叠加问题：用一个父容器包裹div元素，并添加overflow: hidden使它触发BFC。
+
+2.用于布局：布局时若使用了浮动，与未浮动的元素叠加，而BFC有一个特性就是不会与浮动盒子叠加，所以对未浮动的元素触发BFC。
+
 
 ### 43.求一个数组中出现次数最多的那个数
+
+    var arrayObj = [1, 1, 2, 3, 3, 3, 4, 5, 5];//数组
+    var newArray = [];//新数组
+    var count = 0;//出现次数
+    var objLength = arrayObj.length;
+
+    for(var i = 0; i < objLength; i++){
+        if(arrayObj[i] != -1){
+            temp = arrayObj[i];//如果这个元素是没有比较过的，就暂时把这个元素的值存到一个变量temp中
+            for(var j = 0; j < objLength; j++){
+                if(temp == arrayObj[j]){
+                    count++;
+                    arrayObj[j] = -1;//临时改变元素的值以便下次不再计算进去
+                }
+            }
+            newArray.push(temp + "，count:" + count);
+            count = 0;
+        }
+    }
+
+    for(var i = 0; i < newArray.length; i++){
+        console.log(newArray[i]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
