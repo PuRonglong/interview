@@ -19,9 +19,9 @@ var checkList = document.getElementsByTagName('input');
 var array = [];
 var len = checkList.length;
 while(len--){
-    if(checkList[len].type == 'checkbox'){
-        array.push(checkList[len]);
-    }
+	if(checkList[len].type == 'checkbox'){
+		array.push(checkList[len]);
+	}
 }
 console.log(array);
 ```
@@ -174,13 +174,13 @@ join方法用于把数组中的所有元素放入一个字符串<br  />
 
 ```js
 function combo(msg){
-    var arr = msg.split("-");
-    var len = arr.length;    //将arr.length存储在一个局部变量可以提高for循环效率
-    for(var i=1;i<len;i++){
-        arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1，arr[i].length-1);
-    }
-    msg=arr.join("");
-    return msg;
+	var arr = msg.split("-");
+	var len = arr.length;    //将arr.length存储在一个局部变量可以提高for循环效率
+	for(var i=1;i<len;i++){
+		arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1，arr[i].length-1);
+	}
+	msg=arr.join("");
+	return msg;
 }
 ```
 考察基础API
@@ -222,20 +222,20 @@ console.log(year + '-' + month + '-' + day);
 
 ### 16.为了保证页面输出安全，我们经常需要对一些特殊的字符进行转义，请写一个函数escapeHtml，将<， >， &， “进行转义.
 
-    function escapeHtml(str){
-    	return str.replace(/[<>"&]/g， function(match){
-    		switch(match){
-    			case "<";
-    				return "&lt;";
-    			case ">":
-    				return "&gt;";
-    			case “&”:
-              	return “&amp;”;
-              case “\””:
-              	return “&quot;”;
-    		}
-    	}
-    }
+	function escapeHtml(str){
+		return str.replace(/[<>"&]/g， function(match){
+			switch(match){
+				case "<";
+					return "&lt;";
+				case ">":
+					return "&gt;";
+				case “&”:
+				return “&amp;”;
+			  case “\””:
+				return “&quot;”;
+			}
+		}
+	}
 
 ### 17.foo = foo||bar ，这行代码是什么意思？为什么要这样写？。
 
@@ -278,7 +278,7 @@ function getRandom(start，end){
 	return (start +(Math.random() * Range));   
 }   
 for(var i=0; i<10; i++){
-    iArray.push(getRandom(10，100));
+	iArray.push(getRandom(10，100));
 }
 console.log(iArray);
 ```
@@ -326,13 +326,13 @@ getElementById()//通过元素id，唯一性
 
 ```js
 function serilizeUrl(url) {
-    var result = {};
-    url = url.split("?")[1];
-    var map = url.split("&");
-    for(var i = 0， len = map.length; i < len; i++) {
-        result[map[i].split("=")[0]] = map[i].split("=")[1];
-    }
-    return result;
+	var result = {};
+	url = url.split("?")[1];
+	var map = url.split("&");
+	for(var i = 0， len = map.length; i < len; i++) {
+		result[map[i].split("=")[0]] = map[i].split("=")[1];
+	}
+	return result;
 }
 ```
 
@@ -355,7 +355,7 @@ var regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2，3}){1，2}
 ```js
 for(var i=1;i<=3;i++){
   setTimeout(function(){
-      console.log(i);
+	  console.log(i);
   }，0);
 };
 ```
@@ -392,23 +392,23 @@ callee是返回正在被执行的function函数，也就是所指定的function�
 var result=[];
 function fn(n){  //典型的斐波那契数列
    if(n==1){
-        return 1;
+		return 1;
    }else if(n==2){
-        return 16543
+		return 16543
    }else{
-        if(result[n]){
-            return result[n];
-        }else{
-            //argument.callee()表示fn()
-            result[n]=arguments.callee(n-1)+arguments.callee(n-2);
-            return result[n];
-        }
+		if(result[n]){
+			return result[n];
+		}else{
+			//argument.callee()表示fn()
+			result[n]=arguments.callee(n-1)+arguments.callee(n-2);
+			return result[n];
+		}
    }
 }
 ```
 
 ### 27.实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
-      
+	  
 考察点1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区别是否清楚<br  />
 考察点2：是否知道如何判断一个变量是什么类型的<br  />
 考察点3：递归算法的设计<br  />
@@ -416,38 +416,38 @@ function fn(n){  //典型的斐波那契数列
 ```js
 // 方法一：
 Object.prototype.clone = function(){
-        var o = this.constructor === Array ? [] : {};
-        for(var e in this){
-                o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
-        }
-        return o;
+		var o = this.constructor === Array ? [] : {};
+		for(var e in this){
+				o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
+		}
+		return o;
 }
 ```
 
 ```js
 //方法二：
   /**
-     * 克隆一个对象
-     */ 
-    function clone(Obj) {   
-        var buf;   
-        if (Obj instanceof Array) {   
-            buf = [];                    //创建一个空的数组 
-            var i = Obj.length;   
-            while (i--) {   
-                buf[i] = clone(Obj[i]);   
-            }   
-            return buf;    
-        }else if (Obj instanceof Object){   
-            buf = {};                   //创建一个空对象 
-            for (var k in Obj) {           //为这个对象添加新的属性 
-                buf[k] = clone(Obj[k]);   
-            }   
-            return buf;   
-        }else{                         //普通变量直接赋值
-            return Obj;   
-        }   
-    }
+	 * 克隆一个对象
+	 */ 
+	function clone(Obj) {   
+		var buf;   
+		if (Obj instanceof Array) {   
+			buf = [];                    //创建一个空的数组 
+			var i = Obj.length;   
+			while (i--) {   
+				buf[i] = clone(Obj[i]);   
+			}   
+			return buf;    
+		}else if (Obj instanceof Object){   
+			buf = {};                   //创建一个空对象 
+			for (var k in Obj) {           //为这个对象添加新的属性 
+				buf[k] = clone(Obj[k]);   
+			}   
+			return buf;   
+		}else{                         //普通变量直接赋值
+			return Obj;   
+		}   
+	}
 ```
 
 ### 28.如何消除一个数组里面重复的元素？
@@ -479,12 +479,12 @@ var arr=[1，2，3，3，4，4，5，5，6，1，9，3，25，4];
 
 ```js
 function Dog() {
-       this.wow = function() {
-               alert(’Wow’);
-      }
-       this.yelp = function() {
-              this.wow();
-      }
+	   this.wow = function() {
+			   alert(’Wow’);
+	  }
+	   this.yelp = function() {
+			  this.wow();
+	  }
 }
 ```
 
@@ -493,12 +493,12 @@ function Dog() {
 
 ```js
 function MadDog() {
-    this.yelp = function() {
-          var self = this;          
-          setInterval(function() {
-                self.wow();      
-          }， 500);
-      }
+	this.yelp = function() {
+		  var self = this;          
+		  setInterval(function() {
+				self.wow();      
+		  }， 500);
+	  }
 }
 MadDog.prototype = new Dog();
 
@@ -524,21 +524,21 @@ madDog.yelp();
 // 方法一：
 var lis = document.getElementById('test').getElementsByTagName('li');
 for(var i=0;i<3;i++){
-    lis[i].index=i;
-    lis[i].onclick=function(){
-        alert(this.index);
-    };
+	lis[i].index=i;
+	lis[i].onclick=function(){
+		alert(this.index);
+	};
 }
 
 //方法二：
 var lis = document.getElementById('test').getElementsByTagName('li');
 for(var i=0;i<3;i++){
-    lis[i].index=i;
-    lis[i].onclick=(function(a){
-        return function() {
-            alert(a);
-        }
-    })(i);
+	lis[i].index=i;
+	lis[i].onclick=(function(a){
+		return function() {
+			alert(a);
+		}
+	})(i);
 }
 ```
 两种方法，一种通过this来解决，一种通过闭包的形式，体现了两种不同的思路
@@ -548,77 +548,77 @@ for(var i=0;i<3;i++){
 
 ```js
 var query = function(selector) {
-                var reg = /^(#)?(\.)?(\w+)$/img;
-                var regResult = reg.exec(selector);
-                var result = [];
-                //如果是id选择器
-                if(regResult[1]) {
-                    if(regResult[3]) {
-                        if(typeof document.querySelector === "function") {
-                            result.push(document.querySelector(regResult[3]));
-                        }
-                        else {
-                            result.push(document.getElementById(regResult[3]));
-                        }
-                    }
-                }
-                //如果是class选择器
-                else if(regResult[2]) {
-                    if(regResult[3]) {
-                        if(typeof document.getElementsByClassName === 'function') {
-                            var doms = document.getElementsByClassName(regResult[3]);
-                            if(doms) {
-                                result = converToArray(doms);
-                            }
-                        }
-                        //如果不支持getElementsByClassName函数
-                        else {
-                            var allDoms = document.getElementsByTagName("*") ;
-                            for(var i = 0， len = allDoms.length; i < len; i++) {
-                                if(allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
-                                    result.push(allDoms[i]);
-                                }
-                            }
-                        }
-                    }
-                }
-                //如果是标签选择器
-                else if(regResult[3]) {
-                    var doms = document.getElementsByTagName(regResult[3].toLowerCase());
-                    if(doms) {
-                        result = converToArray(doms);
-                    }
-                }
-                return result;
-            }
+				var reg = /^(#)?(\.)?(\w+)$/img;
+				var regResult = reg.exec(selector);
+				var result = [];
+				//如果是id选择器
+				if(regResult[1]) {
+					if(regResult[3]) {
+						if(typeof document.querySelector === "function") {
+							result.push(document.querySelector(regResult[3]));
+						}
+						else {
+							result.push(document.getElementById(regResult[3]));
+						}
+					}
+				}
+				//如果是class选择器
+				else if(regResult[2]) {
+					if(regResult[3]) {
+						if(typeof document.getElementsByClassName === 'function') {
+							var doms = document.getElementsByClassName(regResult[3]);
+							if(doms) {
+								result = converToArray(doms);
+							}
+						}
+						//如果不支持getElementsByClassName函数
+						else {
+							var allDoms = document.getElementsByTagName("*") ;
+							for(var i = 0， len = allDoms.length; i < len; i++) {
+								if(allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
+									result.push(allDoms[i]);
+								}
+							}
+						}
+					}
+				}
+				//如果是标签选择器
+				else if(regResult[3]) {
+					var doms = document.getElementsByTagName(regResult[3].toLowerCase());
+					if(doms) {
+						result = converToArray(doms);
+					}
+				}
+				return result;
+			}
 
-            function converToArray(nodes){
-                  var array = null;         
-                  try{        
-                        array = Array.prototype.slice.call(nodes，0);//针对非IE浏览器         
-                  }catch(ex){
-                      array = new Array();         
-                      for( var i = 0 ，len = nodes.length; i < len ; i++ ) { 
-                          array.push(nodes[i])         
-                      }         
-                  }      
-                  return array;
-          }
+			function converToArray(nodes){
+				  var array = null;         
+				  try{        
+						array = Array.prototype.slice.call(nodes，0);//针对非IE浏览器         
+				  }catch(ex){
+					  array = new Array();         
+					  for( var i = 0 ，len = nodes.length; i < len ; i++ ) { 
+						  array.push(nodes[i])         
+					  }         
+				  }      
+				  return array;
+		  }
 ```
 
 ### 32.请评价以下代码并给出改进意见。
 
 ```js
 if(window.addEventListener){
-    var addListener = function(el， type， listener， useCapture){
-        el.addEventListener(type， listener， useCapture);
+	var addListener = function(el， type， listener， useCapture){
+		el.addEventListener(type， listener， useCapture);
   };
 }
 else if(document.all){
-    addListener = function(el， type， listener){
-        el.attachEvent("on" + type， function(){
-          listener.apply(el);
-      });
+	addListener = function(el， type， listener){
+		el.attachEvent("on" + type， function(){
+		  listener.apply(el);
+	  });
    }  
 }
 ```
@@ -634,11 +634,11 @@ else if(document.all){
 ```js
 function addEvent(elem， type， handler){
 　　if(elem.addEventListener){
-　　　　elem.addEventListener(type， handler， false);
+	elem.addEventListener(type， handler， false);
 　　}else if(elem.attachEvent){
-　　　　elem['temp' + type + handler] = handler;
-　　　　elem[type + handler] = function(){
-　　　　elem['temp' + type + handler].apply(elem);
+	elem['temp' + type + handler] = handler;
+	elem[type + handler] = function(){
+	elem['temp' + type + handler].apply(elem);
 　　};
 　　elem.attachEvent('on' + type， elem[type + handler]);　
   }else{
@@ -652,8 +652,8 @@ addSpace("hello world") // -> 'h e l l o  w o r l d'
 
 ```js
 String.prototype.addSpace = function(){
-       return this.split('').join(' ');
-     };
+	   return this.split('').join(' ');
+	 };
 ```
 
 接着上述答题，那么问题来了:
@@ -669,7 +669,7 @@ String.prototype.addSpace = function(){
 ```js
 //方法一:
 function log(msg)　{
-    console.log(msg);
+	console.log(msg);
 }
 
 log("hello world!") // hello world!
@@ -679,7 +679,7 @@ log("hello world!") // hello world!
 
 ```js
 function log(){
-     console.log.apply(console， arguments);
+	 console.log.apply(console， arguments);
  };
 ```
 
@@ -701,10 +701,10 @@ function log(){
 
 ```js
 function log(){
-      var args = Array.prototype.slice.call(arguments);  //为了使用unshift数组方法，将argument转化为真正的数组
-      args.unshift('(app)');
-      console.log.apply(console， args);
-    };
+	  var args = Array.prototype.slice.call(arguments);  //为了使用unshift数组方法，将argument转化为真正的数组
+	  args.unshift('(app)');
+	  console.log.apply(console， args);
+	};
 ```
 
 ### 36.
@@ -725,37 +725,37 @@ function log(){
 
 方法一：
 
-    function isRepeated(arr){
-        var newArr = [], obj = {};
-        var length = arr.length;
-        for(var i = 0; i < length; i++){
-            if(!obj[arr[i]]){
-                newArr.push(arr[i]);
-                obj[arr[i]] = 1;
-            }
-        }
-        return newArr;
-    }
+	function isRepeated(arr){
+		var newArr = [], obj = {};
+		var length = arr.length;
+		for(var i = 0; i < length; i++){
+			if(!obj[arr[i]]){
+				newArr.push(arr[i]);
+				obj[arr[i]] = 1;
+			}
+		}
+		return newArr;
+	}
 
 方法二：
 
-    function isRepeated(arr){
-        var newArr = [];
-        var length = arr.length;
-        for(var i = 0; i < length; i++){
-            var repeat = false;
-            for(var j = 0; j < length; j++){
-                if(arr[i] == newArr[j]){
-                    repeat = true;
-                    break;
-                }
-            }
-            if(!repeat){
-                newArr.push(arr[i]);
-            }
-        }
-        return newArr;
-    }
+	function isRepeated(arr){
+		var newArr = [];
+		var length = arr.length;
+		for(var i = 0; i < length; i++){
+			var repeat = false;
+			for(var j = 0; j < length; j++){
+				if(arr[i] == newArr[j]){
+					repeat = true;
+					break;
+				}
+			}
+			if(!repeat){
+				newArr.push(arr[i]);
+			}
+		}
+		return newArr;
+	}
 
 ### 38.js中的this
 
@@ -768,15 +768,15 @@ http://www.cnblogs.com/isaboy/archive/2015/10/29/javascript_this.html
 
 看到这样一个题：如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标？
 
-    Array(100).map(function(x){
-        return x;
-    })
+	Array(100).map(function(x){
+		return x;
+	})
 
 但是以为这样就完了吗？too young。上面写法的返回结果是```[undefined × 100]```。这里就涉及一个js中稀疏数组和密集数组的问题了。
 
 js权威指南里这样定义，稀疏数组就是包含从0开始的不连续索引的数组。如：
 
-    a = new Array(5);//这个数组没有元素，但a.length是5
+	a = new Array(5);//这个数组没有元素，但a.length是5
 
 可以用Array()构造函数或简单地指定数组索引值大于当前数组长度来创建稀疏数组。或者可以使用delete操作符，delete掉其中一个元素来产生稀疏数组。
 
@@ -784,96 +784,96 @@ js权威指南里这样定义，稀疏数组就是包含从0开始的不连续�
 
 密集数组的数组元素之间是紧密相连的。这个紧密相连指的是数组元素的存储空间，与稀疏数组的不连续索引相对。下面这样就是创建一个密集数组：
 
-    var a = [1, 2, 3, 3];
+	var a = [1, 2, 3, 3];
 
 或者这样创建密集数组：
 
-    var dense = Array.apply(null, Array(3));
+	var dense = Array.apply(null, Array(3));
 
 那么两者的主要区别是什么：
 
 稀疏数组：
 
-     var array = new Array(3); 
-     array[2] = "name";
-     
-     for(var a in array) 
-     {
-        console.log("index=" + a + ",value=" + array[a]);
-     }
+	 var array = new Array(3); 
+	 array[2] = "name";
+	 
+	 for(var a in array) 
+	 {
+		console.log("index=" + a + ",value=" + array[a]);
+	 }
 
 结果：
 
-    index=2,value=name
+	index=2,value=name
 
 密集数组：
 
-     var dense = Array.apply(null, Array(3)); 
-     dense[2] = "name";
-     for(var a in dense) 
-     {
-        console.log("index=" + a + ",value=" + dense[a]);
-     }
+	 var dense = Array.apply(null, Array(3)); 
+	 dense[2] = "name";
+	 for(var a in dense) 
+	 {
+		console.log("index=" + a + ",value=" + dense[a]);
+	 }
 
 结果：
 
-    index=0,value=undefined
-    index=1,value=undefined
-    index=2,value=name
+	index=0,value=undefined
+	index=1,value=undefined
+	index=2,value=name
 
 从上面的例子可以看出，稀疏数组如果不赋值的话其实是没有元素的。而密集数组中即使没有定义值是多少，但也是有值的，只是是undefined罢了。
 
 知道原因以后我们来看看上面题目的正确打开姿势：
 
-    Object.keys(Array.apply(null,{length:100}));
+	Object.keys(Array.apply(null,{length:100}));
 
 Object.keys()方法返回一个由给定对象的所有可枚举自身属性的属性名组成的数组。
 
-    Object.keys(Array.apply(null,{length:100}));
-    ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99"]
+	Object.keys(Array.apply(null,{length:100}));
+	["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99"]
 
 而用es6方法就更简洁了：
 
-    Array.from(Array(100)).map(function(V,F){return F})
+	Array.from(Array(100)).map(function(V,F){return F})
 
 或者精简一下：
 
-    Array.from(Array(100).keys()) 
+	Array.from(Array(100).keys()) 
 
 Array.from() 方法可以将一个类数组对象或可迭代对象转换成真正的数组。
 
 创建一个空的密集数组的正确方式：
 
-    Array.from({length:100})
+	Array.from({length:100})
 
 或者：
 
-    Array.apply(null, {length: 100});
+	Array.apply(null, {length: 100});
 
 Array.apply(null,{length:100})方法会加分，原因在于{length:100}这种写法属于鸭子类型，是es5才支持，老浏览器必须传一个真正的Array(100) 这样进去才行，相对比较消耗性能。
 
 除了map，也可以考虑用递归实现循环的思路：
 
-    function fun1(arr, n){
-        if(n >= 100){
-            return arr;
-        }
-        arr.push(n);
-        return fun1(arr, n + 1);
-    }
+	function fun1(arr, n){
+		if(n >= 100){
+			return arr;
+		}
+		arr.push(n);
+		return fun1(arr, n + 1);
+	}
 
-    var arr1 = fun1([], 0);
-    console.log(arr1);
+	var arr1 = fun1([], 0);
+	console.log(arr1);
 
 一个典型的递归函数：
 
-    function digui(num){
-        if(num < 1){
-            return 1;
-        }else{
-            return num*digui(num - 1);
-        }
-    }
+	function digui(num){
+		if(num < 1){
+			return 1;
+		}else{
+			return num*digui(num - 1);
+		}
+	}
 
 ### 40.css盒模型
 
@@ -952,28 +952,28 @@ http://www.html-js.com/article/1866
 
 ### 43.求一个数组中出现次数最多的那个数
 
-    var arrayObj = [1, 1, 2, 3, 3, 3, 4, 5, 5];//数组
-    var newArray = [];//新数组
-    var count = 0;//出现次数
-    var objLength = arrayObj.length;
+	var arrayObj = [1, 1, 2, 3, 3, 3, 4, 5, 5];//数组
+	var newArray = [];//新数组
+	var count = 0;//出现次数
+	var objLength = arrayObj.length;
 
-    for(var i = 0; i < objLength; i++){
-        if(arrayObj[i] != -1){
-            temp = arrayObj[i];//如果这个元素是没有比较过的，就暂时把这个元素的值存到一个变量temp中
-            for(var j = 0; j < objLength; j++){
-                if(temp == arrayObj[j]){
-                    count++;
-                    arrayObj[j] = -1;//临时改变元素的值以便下次不再计算进去
-                }
-            }
-            newArray.push(temp + "，count:" + count);
-            count = 0;
-        }
-    }
+	for(var i = 0; i < objLength; i++){
+		if(arrayObj[i] != -1){
+			temp = arrayObj[i];//如果这个元素是没有比较过的，就暂时把这个元素的值存到一个变量temp中
+			for(var j = 0; j < objLength; j++){
+				if(temp == arrayObj[j]){
+					count++;
+					arrayObj[j] = -1;//临时改变元素的值以便下次不再计算进去
+				}
+			}
+			newArray.push(temp + "，count:" + count);
+			count = 0;
+		}
+	}
 
-    for(var i = 0; i < newArray.length; i++){
-        console.log(newArray[i]);
-    }
+	for(var i = 0; i < newArray.length; i++){
+		console.log(newArray[i]);
+	}
 
 
 
